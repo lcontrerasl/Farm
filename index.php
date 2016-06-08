@@ -10,8 +10,8 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <?php
-        cambio
-        ?>
+        <a href="ingresoUsuario.php">INGRESAR USUARIOS</a>
+        <br>
+        <a href="listadoUsuarios.php">LISTAR USUARIOS</a>     
     </body>
 </html>
