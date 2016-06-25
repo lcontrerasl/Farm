@@ -51,7 +51,45 @@ if (isset($_SESSION['usuario'])) {
                     </ul>
 
                     <!-- /.nav-second-level -->
-                </li>                 
+                </li> 
+                 <li>
+                    <a href="#"><i class="fa fa-user fa-fw"></i>Clientes<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="registroCliente.php">Ingreso</a>
+                        </li>
+                        <li>
+                            <a href="listadoClientes.php">Listado</a>
+                        </li>
+                    </ul>
+
+                    <!-- /.nav-second-level -->
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-user fa-fw"></i>Productos<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="ingresoProducto.php">Ingreso</a>
+                        </li>
+                        <li>
+                            <a href="listadoProductos.php">Listado</a>
+                        </li>
+                    </ul>
+
+                    <!-- /.nav-second-level -->
+                </li> 
+                <li>
+                    <a href="#"><i class="fa fa-user fa-fw"></i>Tipo de Productos<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="ingresoTipoProducto.php">Ingreso</a>
+                        </li>
+                        <li>
+                            <a href="listadoTipoProductos.php">Listado</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>  
             </ul>
         </div        
         <!-- /.sidebar-collapse -->

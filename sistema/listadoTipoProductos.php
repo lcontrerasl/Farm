@@ -1,14 +1,14 @@
 <?php
 $conexion = mysql_connect('localhost', 'root', '');
 mysql_select_db('farm', $conexion);
-$sql = 'SELECT * FROM tipo producto ORDER BY idTipo_producto DESC';
+$sql = 'SELECT * FROM tipo_producto ORDER BY idTipo_producto DESC';
 mysql_query($sql);
 
 $result = mysql_query($sql);
-$productos = array();
+$tipoProducto = array();
 if ($row = mysql_fetch_array($result)) {
     do {
-        $productos[] = $row;
+        $tipoProducto[] = $row;
     } while ($row = mysql_fetch_array($result));
 }
 ?>
@@ -51,42 +51,27 @@ if ($row = mysql_fetch_array($result)) {
                                                     <th>
                                                         Nombre
                                                     </th>
-                                                    <th>
-                                                        Precio
-                                                    </th>
-                                                    <th>
-                                                        Stock
-                                                    </th>
+
                                                     <th>
                                                     </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                for ($i = 0; $i < count($productos); $i++) {
-                                                    $productoAux = $productos[$i];
+                                                for ($i = 0; $i < count($tipoProducto); $i++) {
+                                                    $tipoProductoAux = $tipoProducto[$i];
                                                     ?>
                                                     <tr>
                                                         <td>
                                                             <?php
-                                                            echo $productoAux['nombreProducto'];
+                                                            echo $tipoProductoAux['nombreTipo_producto'];
                                                             ?>
-                                                        </td>
+                                                        </td>                                                        
                                                         <td>
-                                                            <?php
-                                                            echo $productoAux['precio_refProducto'];
-                                                            ?>
-                                                        </td>
-                                                        <td>
-                                                            <?php
-                                                            echo $productoAux['stockProducto'];
-                                                            ?>
-                                                        </td>
-                                                        <td>
-                                                            <a href="editarProducto.php?idProducto=<?= $productoAux['idProducto']; ?>" class="btn btn-success">
+                                                            <a href="editarTipoProducto.php?idTipo_producto=<?= $productoAux['idTipo_producto']; ?>" class="btn btn-success">
                                                                 Editar
                                                             </a>
-                                                            <a href="accform/eliminarProducto.php?idProducto=<?= $productoAux['idProducto']; ?>" onclick="return confirm('¿Está seguro de eliminar este registro?');" class="btn btn-danger">
+                                                            <a href="accform/eliminarTipoProducto.php?idTipo_producto=<?= $productoAux['idTipo_producto']; ?>" onclick="return confirm('¿Está seguro de eliminar este registro?');" class="btn btn-danger">
                                                                 Eliminar
                                                             </a>
                                                         </td>
