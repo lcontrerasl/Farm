@@ -5,10 +5,10 @@ $sql = 'SELECT * FROM tipo_producto ORDER BY idTipo_producto DESC';
 mysql_query($sql);
 
 $result = mysql_query($sql);
-$tipoProducto = array();
+$tipo_productos = array();
 if ($row = mysql_fetch_array($result)) {
     do {
-        $tipoProducto[] = $row;
+        $tipo_productos[] = $row;
     } while ($row = mysql_fetch_array($result));
 }
 ?>
@@ -58,20 +58,20 @@ if ($row = mysql_fetch_array($result)) {
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                for ($i = 0; $i < count($tipoProducto); $i++) {
-                                                    $tipoProductoAux = $tipoProducto[$i];
+                                                for ($i = 0; $i < count($tipo_productos); $i++) {
+                                                    $tipo_productoAux = $tipo_productos[$i];
                                                     ?>
                                                     <tr>
                                                         <td>
                                                             <?php
-                                                            echo $tipoProductoAux['nombreTipo_producto'];
+                                                            echo $tipo_productoAux['nombreTipo_producto'];
                                                             ?>
                                                         </td>                                                        
                                                         <td>
-                                                            <a href="editarTipoProducto.php?idTipo_producto=<?= $productoAux['idTipo_producto']; ?>" class="btn btn-success">
+                                                            <a href="editarTipoProducto.php?idTipo_producto=<?= $tipo_productoAux['idTipo_producto']; ?>" class="btn btn-success">
                                                                 Editar
                                                             </a>
-                                                            <a href="accform/eliminarTipoProducto.php?idTipo_producto=<?= $productoAux['idTipo_producto']; ?>" onclick="return confirm('¿Está seguro de eliminar este registro?');" class="btn btn-danger">
+                                                            <a href="accform/eliminarTipoProducto.php?idTipo_producto=<?= $tipo_productoAux['idTipo_producto']; ?>" onclick="return confirm('¿Está seguro de eliminar este registro?');" class="btn btn-danger">
                                                                 Eliminar
                                                             </a>
                                                         </td>

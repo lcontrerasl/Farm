@@ -67,7 +67,7 @@ if ($row = mysql_fetch_array($result)) {
                                                 <input class="form-control" type="text" name="rutCliente" required="" value="<?= $clienteAux['rutCliente']; ?>">
                                             </div>
                                             <div class="form-group">
-                                                <label>Direccion Cliente</label>
+                                                <label>Dirección Cliente</label>
                                                 <input class="form-control" type="text" name="direccionCliente" required="" value="<?= $clienteAux['direccionCliente']; ?>">
                                             </div>
                                             <div class="form-group">
@@ -113,5 +113,3 @@ if ($row = mysql_fetch_array($result)) {
     </body>
 
 </html>
-
-
