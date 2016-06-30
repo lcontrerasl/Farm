@@ -1,7 +1,10 @@
 <?php
 $conexion = mysql_connect('localhost', 'root', '');
 mysql_select_db('farm', $conexion);
-$sql = 'SELECT * FROM producto ORDER BY idProducto DESC';
+$sql = 'SELECT * FROM producto'
+        . ' INNER JOIN tipo_producto ON idTipo_producto = tipo_producto_idTipo_producto'
+        . ' INNER JOIN unidad ON idUnidad = unidad_idUnidad'
+        . ' ORDER BY idProducto DESC';
 mysql_query($sql);
 
 $result = mysql_query($sql);
@@ -58,6 +61,12 @@ if ($row = mysql_fetch_array($result)) {
                                                         Stock
                                                     </th>
                                                     <th>
+                                                        Tipo de Producto
+                                                    </th>
+                                                    <th>
+                                                        Unidad de Medida
+                                                    </th>
+                                                    <th>
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -80,6 +89,16 @@ if ($row = mysql_fetch_array($result)) {
                                                         <td>
                                                             <?php
                                                             echo $productoAux['stockProducto'];
+                                                            ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php
+                                                            echo $productoAux['nombreTipo_producto'];
+                                                            ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php
+                                                            echo $productoAux['nombreUnidad'];
                                                             ?>
                                                         </td>
                                                         <td>
