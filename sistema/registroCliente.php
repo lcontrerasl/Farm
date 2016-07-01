@@ -1,28 +1,3 @@
-<?php
-$conexion = mysql_connect('localhost', 'root', '');
-mysql_select_db('farm', $conexion);
-$sql = 'SELECT * FROM tipo_producto ORDER BY idTipo_producto DESC';
-mysql_query($sql);
-
-$result = mysql_query($sql);
-$tipo_productos = array();
-if ($row = mysql_fetch_array($result)) {
-    do {
-        $tipo_productos[] = $row;
-    } while ($row = mysql_fetch_array($result));
-}
-
-$sql = 'SELECT * FROM unidad ORDER BY idUnidad DESC';
-mysql_query($sql);
-
-$result = mysql_query($sql);
-$unidades = array();
-if ($row = mysql_fetch_array($result)) {
-    do {
-        $unidades[] = $row;
-    } while ($row = mysql_fetch_array($result));
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,7 +19,7 @@ if ($row = mysql_fetch_array($result)) {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Ingreso de Productos</h1>
+                            <h1 class="page-header">Registro Cliente</h1>
                         </div>
                         <!-- /.col-lg-12 -->
                     </div>
@@ -55,53 +30,47 @@ if ($row = mysql_fetch_array($result)) {
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Formulario de ingreso de usuarios
+                                Formulario de ingreso de Clientes
                             </div>
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <form role="form" action="accform/ingresoProducto.php" method="POST">
+                                        <form role="form" action="accform/registroCliente.php" method="POST">
                                             <div class="form-group">
                                                 <label>Nombre</label>
-                                                <input class="form-control" type="text" name="nombreProducto" required="">
+                                                <input class="form-control" type="text" name="nombreCliente" required="">
                                             </div>
                                             <div class="form-group">
-                                                <label>Precio</label>
-                                                <input class="form-control" type="text" name="precio_refProducto" required="">
+                                                <label>Apellido Paterno</label>
+                                                <input class="form-control" type="text" name="ap_paternoCliente" required="">
                                             </div>
                                             <div class="form-group">
-                                                <label>Stock</label>
-                                                <input class="form-control" type="text" name="stockProducto" required="">
+                                                <label>Apellido Materno</label>
+                                                <input class="form-control" type="text" name="ap_maternoCliente" required="">
                                             </div>
                                             <div class="form-group">
-                                                <label>Tipo</label>
-                                                <select class="form-control" name="tipo_producto_idTipo_producto" required="">
-                                                    <?php
-                                                    for ($i = 0; $i < count($tipo_productos); $i++) {
-                                                        $tipo_productoAux = $tipo_productos[$i];
-                                                        ?>
-                                                        <option value="<?= $tipo_productoAux['idTipo_producto'] ?>">
-                                                            <?= $tipo_productoAux['nombreTipo_producto'] ?>
-                                                        </option>
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                </select>
+                                                <label>Rut</label>
+                                                <input class="form-control" type="text" name="rutCliente" required="">
                                             </div>
                                             <div class="form-group">
-                                                <label>Unidad de Medida</label>
-                                                <select class="form-control" name="unidad_idUnidad" required="">
-                                                    <?php
-                                                    for ($i = 0; $i < count($unidades); $i++) {
-                                                        $unidadAux = $unidades[$i];
-                                                        ?>
-                                                        <option value="<?= $unidadAux['idUnidad'] ?>">
-                                                            <?= $unidadAux['nombreUnidad'] ?>
-                                                        </option>
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                </select>
+                                                <label>Direccion</label>
+                                                <input class="form-control" type="text" name="direccionCliente" required="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Fono Fijo</label>
+                                                <input class="form-control" type="text" name="fono_fijoCliente" required="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Fono Movil</label>
+                                                <input class="form-control" type="text" name="fono_movilCliente" required="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input class="form-control" type="email" name="mailCliente" required="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Password</label>
+                                                <input class="form-control" type="password" name="passCliente" required="">
                                             </div>
                                             <button type="submit" class="btn btn-default">Guardar</button>
                                             <button type="reset" class="btn btn-default">Limpiar</button>
@@ -130,3 +99,7 @@ if ($row = mysql_fetch_array($result)) {
     </body>
 
 </html>
+
+
+
+
