@@ -1,0 +1,18 @@
+<?php
+
+$target_path = "uploads/";
+$target_path = $target_path . basename($_FILES['uploadedfile']['name']);
+if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
+    echo "El archivo " . basename($_FILES['uploadedfile']['name']) . " ha sido subido archivo " . $_POST['idProducto'];
+    $conexion = mysql_connect('localhost', 'root', '');
+    mysql_select_db('farm', $conexion);
+    $sql = 'UPDATE producto SET '
+            . 'imgProducto=\'' . basename($_FILES['uploadedfile']['name']) . '\' '
+            . 'WHERE idProducto = ' . $_POST['idProducto'];
+    mysql_query($sql);
+    header("Location: http://localhost/farm/sistema/editarProducto.php?idProducto=" . $_POST['idProducto']);
+    die();
+} else {
+    echo "Ha ocurrido un error, trate de nuevo!";
+}
+
